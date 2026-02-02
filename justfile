@@ -10,8 +10,8 @@ build:
 # update the version number (x.y.z | patch | minor | major) for app
 update VER:
     ./update-version {{VER}}
-    cargo check
     npm install
+    cd src-tauri && cargo update
 
 # Run the project in development mode
 dev:
