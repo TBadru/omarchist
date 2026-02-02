@@ -10,9 +10,6 @@ macro_rules! big_json {
 
 pub struct BtopGenerator;
 
-unsafe impl Send for BtopGenerator {}
-unsafe impl Sync for BtopGenerator {}
-
 impl ConfigGenerator for BtopGenerator {
     fn get_app_name(&self) -> &'static str {
         "btop"

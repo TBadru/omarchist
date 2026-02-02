@@ -3,9 +3,6 @@ use serde_json::{json, Value};
 
 pub struct HyprlandGenerator;
 
-unsafe impl Send for HyprlandGenerator {}
-unsafe impl Sync for HyprlandGenerator {}
-
 impl ConfigGenerator for HyprlandGenerator {
     fn get_app_name(&self) -> &'static str {
         "hyprland"

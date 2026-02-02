@@ -3,9 +3,6 @@ use serde_json::{json, Value};
 
 pub struct HyprlockGenerator;
 
-unsafe impl Send for HyprlockGenerator {}
-unsafe impl Sync for HyprlockGenerator {}
-
 impl ConfigGenerator for HyprlockGenerator {
     fn get_app_name(&self) -> &'static str {
         "hyprlock"

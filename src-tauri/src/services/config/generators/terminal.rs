@@ -5,9 +5,6 @@ use serde_json::{json, Value};
 /// The actual config generation is delegated to individual generators
 pub struct TerminalGenerator;
 
-unsafe impl Send for TerminalGenerator {}
-unsafe impl Sync for TerminalGenerator {}
-
 impl ConfigGenerator for TerminalGenerator {
     fn get_app_name(&self) -> &'static str {
         "terminal"

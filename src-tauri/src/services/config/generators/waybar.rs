@@ -3,9 +3,6 @@ use serde_json::{json, Value};
 
 pub struct WaybarGenerator;
 
-unsafe impl Send for WaybarGenerator {}
-unsafe impl Sync for WaybarGenerator {}
-
 impl ConfigGenerator for WaybarGenerator {
     fn get_app_name(&self) -> &'static str {
         "waybar"

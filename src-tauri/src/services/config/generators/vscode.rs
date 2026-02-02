@@ -3,9 +3,6 @@ use serde_json::{json, Value};
 
 pub struct VscodeGenerator;
 
-unsafe impl Send for VscodeGenerator {}
-unsafe impl Sync for VscodeGenerator {}
-
 impl ConfigGenerator for VscodeGenerator {
     fn get_app_name(&self) -> &'static str {
         "vscode"

@@ -3,9 +3,6 @@ use serde_json::{json, Value};
 
 pub struct IconsGenerator;
 
-unsafe impl Send for IconsGenerator {}
-unsafe impl Sync for IconsGenerator {}
-
 impl ConfigGenerator for IconsGenerator {
     fn get_app_name(&self) -> &'static str {
         "icons"

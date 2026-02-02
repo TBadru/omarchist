@@ -3,9 +3,6 @@ use serde_json::{json, Value};
 
 pub struct KittyGenerator;
 
-unsafe impl Send for KittyGenerator {}
-unsafe impl Sync for KittyGenerator {}
-
 impl ConfigGenerator for KittyGenerator {
     fn get_app_name(&self) -> &'static str {
         "kitty"
