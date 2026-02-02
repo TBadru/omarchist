@@ -265,10 +265,10 @@ impl CustomThemeService {
                         t_map.insert(k.clone(), v.clone());
                     }
                 }
-            }
+            },
             (t, s) => {
                 *t = s.clone();
-            }
+            },
         }
     }
 
@@ -806,7 +806,8 @@ impl CustomThemeService {
             return String::new();
         }
 
-        const CHARS: &[u8; 64] = b"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+        const CHARS: &[u8; 64] =
+            b"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
         // Pre-allocate with exact capacity to avoid reallocations
         let output_len = data.len().div_ceil(3) * 4;

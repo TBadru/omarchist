@@ -1,5 +1,4 @@
-# Clippy configuration for Omarchist backend
-# See https://doc.rust-lang.org/clippy/configuration.html for all options
+# Clippy configuration for Omarchist
 
 # Complexity thresholds
 cognitive-complexity-threshold = 30

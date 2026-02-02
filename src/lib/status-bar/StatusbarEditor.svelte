@@ -27,7 +27,8 @@
 		listWaybarProfiles,
 		createWaybarProfile,
 		selectWaybarProfile,
-		deleteWaybarProfile
+		deleteWaybarProfile,
+		resetWaybarToBundledDefaults
 	} from '$lib/utils/waybar/waybarConfigUtils.js';
 	import ColorPickerField from '$lib/themeDesigner/ColorPickerField.svelte';
 	import { Separator } from '$lib/components/ui/separator/index.js';
@@ -302,10 +303,12 @@
 
 	async function handleReset() {
 		clearAutoSaveTimer();
-		resetWaybarConfigToDefaults(config);
-		await saveWaybarConfig(config, {
-			message: 'Waybar configuration reset to defaults.'
-		});
+		const ok = await resetWaybarToBundledDefaults(config);
+		if (ok) {
+			await invoke('execute_bash_command_async', {
+				command: 'omarchy-restart-app waybar'
+			});
+		}
 	}
 
 	function getGlobalError(key) {
