@@ -73,7 +73,10 @@
 		if (selectDisabled) {
 			return;
 		}
-		await onProfileSelect?.(value);
+		const switched = await onProfileSelect?.(value);
+		if (switched) {
+			await restartApp('waybar');
+		}
 	}
 
 	function openCreateDialog() {
@@ -177,7 +180,7 @@
 									<div class="flex w-full items-center justify-between gap-2 text-xs uppercase">
 										<span class="truncate font-semibold">{profile.name}</span>
 										{#if profile.is_active}
-											<span class="text-primary text-[0.6rem] font-medium">Active</span>
+											<span class="text-muted-foreground text-[0.6rem] font-medium">Active</span>
 										{/if}
 									</div>
 								</Select.Item>
