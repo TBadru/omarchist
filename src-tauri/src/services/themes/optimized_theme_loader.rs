@@ -205,10 +205,7 @@ impl OptimizedThemeLoader {
 
         let theme_count = theme_entries.len();
 
-        log::info!(
-            "Loading {} themes with parallel processing",
-            theme_count
-        );
+        log::info!("Loading {} themes with parallel processing", theme_count);
 
         // Process themes in parallel using tokio::spawn
         let mut handles: Vec<JoinHandle<Result<SysTheme, String>>> = Vec::new();
@@ -264,9 +261,8 @@ impl OptimizedThemeLoader {
         let mut handles: Vec<JoinHandle<Result<ThemeMetadata, String>>> = Vec::new();
 
         for (path, origin) in theme_entries {
-            let handle = tokio::spawn(async move {
-                Self::generate_theme_metadata(&path, origin).await
-            });
+            let handle =
+                tokio::spawn(async move { Self::generate_theme_metadata(&path, origin).await });
             handles.push(handle);
         }
 
@@ -571,7 +567,8 @@ impl OptimizedThemeLoader {
             return String::new();
         }
 
-        const CHARS: &[u8; 64] = b"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+        const CHARS: &[u8; 64] =
+            b"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
         // Pre-allocate with exact capacity to avoid reallocations
         let output_len = data.len().div_ceil(3) * 4;

@@ -3,9 +3,6 @@ use serde_json::{json, Value};
 
 pub struct ChromiumGenerator;
 
-unsafe impl Send for ChromiumGenerator {}
-unsafe impl Sync for ChromiumGenerator {}
-
 impl ConfigGenerator for ChromiumGenerator {
     fn get_app_name(&self) -> &'static str {
         "chromium"

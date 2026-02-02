@@ -560,6 +560,26 @@ export function resetWaybarConfigToDefaults(state) {
 	markWaybarDirty(state);
 }
 
+export async function resetWaybarToBundledDefaults(state) {
+	state.isSaving = true;
+	state.error = null;
+	state.success = null;
+
+	try {
+		const snapshot = await invoke('reset_waybar_to_defaults');
+		applySnapshotToState(state, snapshot);
+		state.success = 'Waybar configuration reset to defaults.';
+		return true;
+	} catch (error) {
+		console.error('Failed to reset Waybar config:', error);
+		state.error =
+			typeof error === 'string' ? error : 'Unable to reset Waybar configuration. Please try again.';
+		return false;
+	} finally {
+		state.isSaving = false;
+	}
+}
+
 export function updateWaybarLayoutSection(state, section, modules) {
 	if (!['left', 'center', 'right', 'hidden'].includes(section)) {
 		return;

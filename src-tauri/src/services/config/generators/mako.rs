@@ -3,9 +3,6 @@ use serde_json::{json, Value};
 
 pub struct MakoGenerator;
 
-unsafe impl Send for MakoGenerator {}
-unsafe impl Sync for MakoGenerator {}
-
 impl ConfigGenerator for MakoGenerator {
     fn get_app_name(&self) -> &'static str {
         "mako"

@@ -3,9 +3,6 @@ use serde_json::{json, Value};
 
 pub struct GhosttyGenerator;
 
-unsafe impl Send for GhosttyGenerator {}
-unsafe impl Sync for GhosttyGenerator {}
-
 impl ConfigGenerator for GhosttyGenerator {
     fn get_app_name(&self) -> &'static str {
         "ghostty"

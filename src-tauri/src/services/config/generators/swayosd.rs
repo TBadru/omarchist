@@ -3,9 +3,6 @@ use serde_json::{json, Value};
 
 pub struct SwayosdGenerator;
 
-unsafe impl Send for SwayosdGenerator {}
-unsafe impl Sync for SwayosdGenerator {}
-
 impl ConfigGenerator for SwayosdGenerator {
     fn get_app_name(&self) -> &'static str {
         "swayosd"

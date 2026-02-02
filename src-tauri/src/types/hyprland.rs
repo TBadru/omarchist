@@ -4035,6 +4035,6 @@ mod tests {
             serialized.snap.get("border_overlap"),
             Some(&HyprlandValue::Bool(true))
         );
-        assert!(serialized.snap.get("respect_gaps").is_none());
+        assert!(!serialized.snap.contains_key("respect_gaps"));
     }
 }

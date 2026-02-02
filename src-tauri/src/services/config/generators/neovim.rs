@@ -3,9 +3,6 @@ use serde_json::{json, Value};
 
 pub struct NeovimGenerator;
 
-unsafe impl Send for NeovimGenerator {}
-unsafe impl Sync for NeovimGenerator {}
-
 impl ConfigGenerator for NeovimGenerator {
     fn get_app_name(&self) -> &'static str {
         "neovim"

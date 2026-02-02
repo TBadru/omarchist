@@ -3,9 +3,6 @@ use serde_json::{json, Value};
 
 pub struct AlacrittyGenerator;
 
-unsafe impl Send for AlacrittyGenerator {}
-unsafe impl Sync for AlacrittyGenerator {}
-
 impl ConfigGenerator for AlacrittyGenerator {
     fn get_app_name(&self) -> &'static str {
         "alacritty"

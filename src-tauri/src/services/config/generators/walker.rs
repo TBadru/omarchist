@@ -3,9 +3,6 @@ use serde_json::{json, Value};
 
 pub struct WalkerGenerator;
 
-unsafe impl Send for WalkerGenerator {}
-unsafe impl Sync for WalkerGenerator {}
-
 impl ConfigGenerator for WalkerGenerator {
     fn get_app_name(&self) -> &'static str {
         "walker"
