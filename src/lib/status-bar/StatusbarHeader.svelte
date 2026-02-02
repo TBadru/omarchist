@@ -50,7 +50,7 @@
 				? { label: 'Saving…', className: 'text-muted-foreground' }
 				: dirty
 					? { label: 'Unsaved changes', className: 'text-amber-400' }
-					: { label: 'Up to date', className: 'text-muted-foreground' }
+					: { label: 'Saved', className: 'text-muted-foreground' }
 	);
 	const deleteTarget = $derived(
 		profiles.find((entry) => entry.id === deleteDialog.profileId) ?? null
@@ -258,9 +258,6 @@
 				<Dialog.Title class="text-sm font-semibold tracking-wide uppercase">
 					New Waybar Configuration
 				</Dialog.Title>
-				<Dialog.Description class="text-muted-foreground text-xs uppercase">
-					Provide a descriptive name so you can recognize this layout later.
-				</Dialog.Description>
 			</Dialog.Header>
 			<div class="space-y-2">
 				<label class="text-xs font-semibold tracking-wide uppercase" for="waybar-profile-name">
@@ -278,7 +275,7 @@
 				<Dialog.Close asChild>
 					<Button
 						type="button"
-						variant="outline"
+						variant="secondary"
 						disabled={profileInteractionLocked || profileBusy}
 					>
 						Cancel
@@ -286,6 +283,7 @@
 				</Dialog.Close>
 				<Button
 					type="button"
+					variant="outline"
 					onclick={submitCreate}
 					disabled={profileInteractionLocked || profileBusy || !createDialog.name?.trim()}
 				>
